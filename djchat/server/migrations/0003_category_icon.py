@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             model_name="category",
             name="icon",
             field=models.FileField(
-                blank=True, null=True, upload_to=server.models.category_icon_upload_path
+                blank=True, null=True, upload_to="category_icons"
             ),
         ),
     ]

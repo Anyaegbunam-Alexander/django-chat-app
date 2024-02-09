@@ -9,22 +9,10 @@ from server.validators import (
 )
 
 
-def category_icon_upload_path(instance, filename):
-    return f"categories/{instance.id}/icons/{filename}"
-
-
-def server_icon_upload_path(instance, filename):
-    return f"servers/{instance.id}/icons/{filename}"
-
-
-def server_banner_upload_path(instance, filename):
-    return f"servers/{instance.id}/banners/{filename}"
-
-
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True, default="")
-    icon = models.FileField(upload_to=category_icon_upload_path, blank=True, null=True)
+    icon = models.FileField(upload_to="category_icons", blank=True, null=True)
 
     def __str__(self) -> str:
         return self.name
@@ -56,13 +44,13 @@ class Server(models.Model):
     description = models.CharField(max_length=250, blank=True, default="")
     members = models.ManyToManyField(Account)
     banner = models.ImageField(
-        upload_to=server_banner_upload_path,
+        upload_to="server_banners",
         blank=True,
         null=True,
         validators=[validate_banner_image, validate_image_file_extensions],
     )
     icon = models.ImageField(
-        upload_to=server_icon_upload_path,
+        upload_to="server_icons",
         blank=True,
         null=True,
         validators=[validate_icon_image, validate_image_file_extensions],

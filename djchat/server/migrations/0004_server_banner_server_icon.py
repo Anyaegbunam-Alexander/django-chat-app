@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             field=models.ImageField(
                 blank=True,
                 null=True,
-                upload_to=server.models.server_banner_upload_path,
+                upload_to="server_banners",
                 validators=[
                     server.validators.validate_banner_image,
                     server.validators.validate_image_file_extensions,
@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
             field=models.ImageField(
                 blank=True,
                 null=True,
-                upload_to=server.models.server_icon_upload_path,
+                upload_to="server_icons",
                 validators=[
                     server.validators.validate_icon_image,
                     server.validators.validate_image_file_extensions,
