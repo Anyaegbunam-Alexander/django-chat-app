@@ -3,6 +3,7 @@ import Box from "@mui/system/Box";
 import PrimaryAppBar from "./templates/PrimaryAppBar";
 import PrimaryDrawer from "./templates/PrimaryDrawer";
 import SecondaryDrawer from "./templates/SecondaryDrawer";
+import Main from "./templates/Main";
 
 const Home = () => {
 	return (
@@ -12,6 +13,7 @@ const Home = () => {
 				<PrimaryAppBar />
 				<PrimaryDrawer></PrimaryDrawer>
 				<SecondaryDrawer />
+				<Main />
 			</Box>
 		</>
 	);
