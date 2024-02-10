@@ -13,7 +13,7 @@ def validate_icon_image(image):
 
 def validate_image_file_extensions(image):
     if image:
-        ext = os.path.splitext(image)[1]
+        ext = os.path.splitext(image.name)[1]
         valid_extensions = [".jpg", ".jpeg", ".png", ".gif"]
         if not ext.lower() in valid_extensions:
             raise ValidationError(

@@ -19,6 +19,7 @@ class ChannelSerializer(serializers.ModelSerializer):
 class ServerSerializer(serializers.ModelSerializer):
     num_members = serializers.SerializerMethodField()
     channels = ChannelSerializer(many=True)
+    category = CategorySerializer()
 
     class Meta:
         model = Server
