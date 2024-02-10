@@ -1,10 +1,11 @@
 import { CssBaseline } from "@mui/material";
 import Box from "@mui/system/Box";
-import PopularChannels from "../components/PrimaryDrawer/PopularCHannels";
+import PopularChannels from "../components/PrimaryDrawer/PopularChannels";
 import Main from "./templates/Main";
 import PrimaryAppBar from "./templates/PrimaryAppBar";
 import PrimaryDrawer from "./templates/PrimaryDrawer";
 import SecondaryDrawer from "./templates/SecondaryDrawer";
+import ExploreCategories from "../components/SecondaryDraw/ExploreCategories";
 
 const Home = () => {
 	return (
@@ -13,9 +14,11 @@ const Home = () => {
 				<CssBaseline />
 				<PrimaryAppBar />
 				<PrimaryDrawer>
-					<PopularChannels />
+					<PopularChannels open={false} />
 				</PrimaryDrawer>
-				<SecondaryDrawer />
+				<SecondaryDrawer>
+					<ExploreCategories />
+				</SecondaryDrawer>
 				<Main />
 			</Box>
 		</>

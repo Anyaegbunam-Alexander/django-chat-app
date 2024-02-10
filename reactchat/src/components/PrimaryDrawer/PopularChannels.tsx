@@ -14,17 +14,11 @@ import { Link } from "react-router-dom";
 import { MEDIA_URL } from "../../config";
 import useCrud from "../../hooks/useCrud";
 
-interface Category {
-	id: number;
-	name: string;
-	icon: string;
-	description: string;
-}
 
 interface Server {
 	id: number;
 	name: string;
-	category: Category;
+	category: string;
 	icon: string;
 }
 
@@ -102,7 +96,7 @@ const PopularChannels: React.FC<Props> = ({ open }) => {
 												color: "textSecondary",
 											}}
 										>
-											{item.category.name}
+											{item.category}
 										</Typography>
 									}
 									sx={{ opacity: open ? 1 : 0 }}

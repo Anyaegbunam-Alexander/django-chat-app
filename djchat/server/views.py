@@ -3,9 +3,19 @@ from rest_framework import status, viewsets
 from rest_framework.exceptions import NotAuthenticated, NotFound, ValidationError
 from rest_framework.request import Request
 from rest_framework.response import Response
-from server.models import Server
+from server.models import Category, Server
 from server.schema import server_list_doc
-from server.serializers import ServerSerializer
+from server.serializers import CategorySerializer, ServerSerializer
+from drf_spectacular.utils import extend_schema
+
+
+class CategoryListViewSet(viewsets.ViewSet):
+    queryset = Category.objects.all()
+
+    @extend_schema(responses=CategorySerializer)
+    def list(self, request):
+        serializer = CategorySerializer(self.queryset, many=True)
+        return Response(serializer.data, status.HTTP_200_OK)
 
 
 class ServerListViewSet(viewsets.ViewSet):
