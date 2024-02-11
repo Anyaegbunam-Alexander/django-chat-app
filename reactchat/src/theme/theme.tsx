@@ -32,7 +32,7 @@ declare module "@mui/material/styles" {
 	}
 }
 
-export const createMuiTheme = () => {
+export const createMuiTheme = (mode: "light" | "dark") => {
 	let theme = createTheme({
 		typography: {
 			fontFamily: ["IBM Plex Sans", "sans-serif"].join(","),
@@ -42,24 +42,23 @@ export const createMuiTheme = () => {
 			},
 			body2: {
 				fontWeight: 500,
+				fontSize: "15px",
 				letterSpacing: "-0.5px",
-				fontSize: "15px"
 			},
 		},
-
 		PrimaryAppBar: {
 			height: 50,
 		},
-
 		primaryDrawer: {
 			width: 240,
 			closed: 70,
 		},
-
 		secondaryDrawer: {
 			width: 240,
 		},
-
+		palette: {
+			mode,
+		},
 		components: {
 			MuiAppBar: {
 				defaultProps: {
@@ -72,5 +71,4 @@ export const createMuiTheme = () => {
 	theme = responsiveFontSizes(theme);
 	return theme;
 };
-
 export default createMuiTheme;

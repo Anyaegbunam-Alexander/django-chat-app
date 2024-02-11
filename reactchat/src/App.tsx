@@ -1,13 +1,12 @@
-import { ThemeProvider } from "@mui/material";
 import {
 	Route,
 	RouterProvider,
 	createBrowserRouter,
 	createRoutesFromElements,
 } from "react-router-dom";
+import ToggleColorMode from "./components/ToggleColorMode";
 import Explore from "./pages/Explore";
 import Home from "./pages/Home";
-import createMuiTheme from "./theme/theme";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -19,11 +18,10 @@ const router = createBrowserRouter(
 );
 
 const App = () => {
-	const theme = createMuiTheme();
 	return (
-		<ThemeProvider theme={theme}>
+		<ToggleColorMode>
 			<RouterProvider router={router} />
-		</ThemeProvider>
+		</ToggleColorMode>
 	);
 };
 
