@@ -1,23 +1,30 @@
 import { ThemeProvider } from "@mui/material";
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
+import {
+	Route,
+	RouterProvider,
+	createBrowserRouter,
+	createRoutesFromElements,
+} from "react-router-dom";
+import Explore from "./pages/Explore";
 import Home from "./pages/Home";
 import createMuiTheme from "./theme/theme";
 
 const router = createBrowserRouter(
-    createRoutesFromElements(
-        <Route>
-            <Route path="/" element={ <Home />} />
-        </Route>
-    )
+	createRoutesFromElements(
+		<Route>
+			<Route path="/" element={<Home />} />
+			<Route path="/explore/:categoryName" element={<Explore />} />
+		</Route>
+	)
 );
 
 const App = () => {
-  const theme = createMuiTheme()
-  return (
-    <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  );
+	const theme = createMuiTheme();
+	return (
+		<ThemeProvider theme={theme}>
+			<RouterProvider router={router} />
+		</ThemeProvider>
+	);
 };
 
 export default App;

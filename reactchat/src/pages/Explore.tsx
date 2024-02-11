@@ -1,14 +1,14 @@
 import { CssBaseline } from "@mui/material";
 import Box from "@mui/system/Box";
-import ExploreServers from "../components/Main/ExploreServers";
 import PopularChannels from "../components/PrimaryDrawer/PopularChannels";
 import ExploreCategories from "../components/SecondaryDraw/ExploreCategories";
 import Main from "./templates/Main";
 import PrimaryAppBar from "./templates/PrimaryAppBar";
 import PrimaryDrawer from "./templates/PrimaryDrawer";
 import SecondaryDrawer from "./templates/SecondaryDrawer";
+import ExploreServers from "../components/Main/ExploreServers";
 
-const Home = () => {
+const Explore = () => {
 	return (
 		<>
 			<Box sx={{ display: "flex" }}>
@@ -20,12 +20,12 @@ const Home = () => {
 				<SecondaryDrawer>
 					<ExploreCategories />
 				</SecondaryDrawer>
-				<Main>
-					<ExploreServers />
-				</Main>
+                <Main>
+                    <ExploreServers />
+                </Main>
 			</Box>
 		</>
 	);
 };
 
-export default Home;
+export default Explore;
