@@ -31,6 +31,9 @@ const ExploreCategories = () => {
 	useEffect(() => {
 		fetchData();
 	}, []);
+
+	const isDarkMode = theme.palette.mode === "dark"
+
 	return (
 		<>
 			<Box
@@ -70,13 +73,18 @@ const ExploreCategories = () => {
 												height: "25px",
 												display: "block",
 												margin: "auto",
+												filter: isDarkMode ? "invert(100%)" : "none",
 											}}
 										></img>
 									</ListItemAvatar>
 								</ListItemIcon>
 								<ListItemText
 									primary={
-										<Typography variant="body1" textAlign="start" paddingLeft={1}>
+										<Typography
+											variant="body1"
+											textAlign="start"
+											paddingLeft={1}
+										>
 											{item.name}
 										</Typography>
 									}
