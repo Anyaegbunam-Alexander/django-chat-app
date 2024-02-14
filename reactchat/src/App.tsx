@@ -7,11 +7,13 @@ import {
 import ToggleColorMode from "./components/ToggleColorMode";
 import Explore from "./pages/Explore";
 import Home from "./pages/Home";
+import Server from "./pages/Server";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route>
 			<Route path="/" element={<Home />} />
+			<Route path="/server" element={<Server />} />
 			<Route path="/explore/:categoryName" element={<Explore />} />
 		</Route>
 	)
