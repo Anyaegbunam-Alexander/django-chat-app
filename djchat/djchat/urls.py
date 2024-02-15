@@ -1,4 +1,4 @@
-from chat.consumers import MyConsumer
+from chat.consumers import ChatConsumer
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -18,7 +18,7 @@ urlpatterns = [
 ] + router.urls
 
 
-websocket_urlpatterns = [path("ws/test", MyConsumer.as_asgi())]
+websocket_urlpatterns = [path("ws/test", ChatConsumer.as_asgi())]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

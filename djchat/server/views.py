@@ -67,7 +67,7 @@ class ServerListViewSet(viewsets.ViewSet):
         server_id = request.query_params.get("server_id")
         with_num_members = request.query_params.get("with_num_members") == "true"
 
-        if (by_user or server_id) and not request.user.is_authenticated:
+        if (by_user) and not request.user.is_authenticated:
             raise NotAuthenticated()
 
         queryset = self.queryset
