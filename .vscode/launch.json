@@ -17,7 +17,7 @@
 			"name": "Uvicorn Debuger",
 			"type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/djchat/uvicorn_debug.py",
+            "program": "${workspaceFolder}/djchat/run_uvicorn.py",
 		}
 	]
 }
