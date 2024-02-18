@@ -62,7 +62,6 @@ const MessageInterface: React.FC<ServerChannelsProps> = ({ data }) => {
 			try {
 				const data = await fetchData();
 				setNewMessage([]);
-				console.log(data);
 				setNewMessage(Array.isArray(data) ? data : []);
 				console.log("Connected!");
 			} catch (error) {
@@ -99,6 +98,19 @@ const MessageInterface: React.FC<ServerChannelsProps> = ({ data }) => {
 			e.preventDefault();
 			sendMessage();
 		}
+	};
+
+	const formatTimestamp = (timestamp: string): string => {
+		const date = new Date(Date.parse(timestamp));
+		const formattedDate = `${
+			date.getMonth() + 1
+		}/${date.getDate()}/${date.getFullYear()}`;
+		const formattedTime = date.toLocaleTimeString([], {
+			hour: "2-digit",
+			minute: "2-digit",
+			hour12: true,
+		});
+		return `${formattedDate} - ${formattedTime}`;
 	};
 
 	return (
@@ -145,14 +157,23 @@ const MessageInterface: React.FC<ServerChannelsProps> = ({ data }) => {
 														variant: "body2",
 													}}
 													primary={
-														<Typography
-															component="span"
-															variant="body1"
-															color="text.primary"
-															sx={{ display: "inline", fontWeight: 600 }}
-														>
-															{msg.sender}
-														</Typography>
+														<>
+															<Typography
+																component="span"
+																variant="body1"
+																color="text.primary"
+																sx={{ display: "inline", fontWeight: 600 }}
+															>
+																{msg.sender}
+															</Typography>
+															<Typography
+																component="span"
+																variant="caption"
+																color="textSecondary"
+															>
+																{` ( ${formatTimestamp(msg.timestamp)} )`}
+															</Typography>
+														</>
 													}
 													secondary={
 														<React.Fragment>
