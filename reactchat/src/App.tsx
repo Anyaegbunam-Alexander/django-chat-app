@@ -5,14 +5,17 @@ import {
 	createRoutesFromElements,
 } from "react-router-dom";
 import ToggleColorMode from "./components/ToggleColorMode";
+import { AuthServiceProvider } from "./contexts/AuthContext";
 import Explore from "./pages/Explore";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import Server from "./pages/Server";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route>
 			<Route path="/" element={<Home />} />
+			<Route path="/login" element={<Login />} />
 			<Route path="/servers/:serverId/:channelId?" element={<Server />} />
 			<Route path="/explore/:categoryName" element={<Explore />} />
 		</Route>
@@ -21,9 +24,11 @@ const router = createBrowserRouter(
 
 const App = () => {
 	return (
-		<ToggleColorMode>
-			<RouterProvider router={router} />
-		</ToggleColorMode>
+		<AuthServiceProvider>
+			<ToggleColorMode>
+				<RouterProvider router={router} />
+			</ToggleColorMode>
+		</AuthServiceProvider>
 	);
 };
 

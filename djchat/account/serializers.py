@@ -6,11 +6,9 @@ fake = Faker()
 
 
 class UserSerializer(serializers.ModelSerializer):
-    username = serializers.CharField()
-
     class Meta:
         model = get_user_model()
-        fields = ["username", "email", "last_login"]
+        fields = ["username", "email", "last_login", "id"]
 
 
 class LoginSchemaSerializer(serializers.Serializer):

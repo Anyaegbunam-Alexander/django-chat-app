@@ -156,4 +156,7 @@ CHANNEL_LAYERS = {
     "default": {"BACKEND": "channels.layers.InMemoryChannelLayer"},
 }
 
-REST_KNOX = {"USER_SERIALIZER": "account.serializers.UserSerializer"}
+REST_KNOX = {
+    "USER_SERIALIZER": "account.serializers.UserSerializer",
+    "AUTH_HEADER_PREFIX": "Bearer",
+}
