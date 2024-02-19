@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_spectacular",
     "corsheaders",
+    "knox",
     # Internal
     "server",
     "account",
@@ -133,7 +134,8 @@ AUTH_USER_MODEL = "account.Account"
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.SessionAuthentication",
+        "knox.auth.TokenAuthentication",
+        # "rest_framework.authentication.SessionAuthentication",
     ],
 }
 
@@ -153,3 +155,5 @@ CORS_ALLOWED_ORIGINS = [
 CHANNEL_LAYERS = {
     "default": {"BACKEND": "channels.layers.InMemoryChannelLayer"},
 }
+
+REST_KNOX = {"USER_SERIALIZER": "account.serializers.UserSerializer"}

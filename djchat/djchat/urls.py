@@ -5,6 +5,7 @@ from django.contrib import admin
 from django.urls import path
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.routers import DefaultRouter
+from account.views import LoginView
 from server.views import CategoryListViewSet, ServerListViewSet
 from chat.views import MessageViewSet
 
@@ -17,6 +18,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/docs/schema/", SpectacularAPIView.as_view(), name="schema"),
     path("api/docs/ui/", SpectacularSwaggerView.as_view()),
+    path("api/login/", LoginView.as_view(), name="api_login"),
 ] + router.urls
 
 
