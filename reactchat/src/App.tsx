@@ -10,6 +10,7 @@ import Explore from "./pages/Explore";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Server from "./pages/Server";
+import TestLogin from "./pages/TestLogin";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
 			<Route path="/login" element={<Login />} />
 			<Route path="/servers/:serverId/:channelId?" element={<Server />} />
 			<Route path="/explore/:categoryName" element={<Explore />} />
+			<Route path="/test-login" element={<TestLogin />} />
 		</Route>
 	)
 );

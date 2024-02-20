@@ -16,7 +16,7 @@ const Login = () => {
 			if (response) {
 				console.log(response);
 			} else {
-				navigate("/");
+				navigate("/test-login");
 			}
 		},
 	});
